@@ -1,0 +1,17 @@
+.Header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem;
+}
+
+button {
+  width: 80px;
+  padding: 5px 0;
+  margin-left: 5px;
+  border: none;
+  background-color: hsl(0, 2%, 85%);
+}
+
+button:active {
+  background-color: hsl(0, 2%, 73%);
+}

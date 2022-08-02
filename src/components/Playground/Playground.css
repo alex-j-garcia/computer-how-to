@@ -1,4 +1,5 @@
 .Playground {
+  height: 500px;
   flex: 1;
   display: flex;
   justify-content: center;
