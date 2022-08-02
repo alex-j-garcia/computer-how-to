@@ -1,10 +1,11 @@
 import './Menu.css'
+import { nanoid } from 'nanoid/non-secure';
 
 function Menu({ links }) {
-  console.log(links)
   const { module, title, lessons } = links;
 
-  const lessonLIs = lessons.map(lesson => <li>{lesson}</li>);
+  const lessonLIs = lessons.map(lesson => <li key={nanoid()}>{lesson}</li>);
+
   return (
     <nav className='Menu'>
       <ol className='Menu-links'>

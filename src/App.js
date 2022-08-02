@@ -6,7 +6,6 @@ import lessons from './lessons.json'
 
 function App() {
   const [lesson, setLesson] = useState(lessons[0]);
-  console.log(lesson);
 
   return (
     <div className='App'>
