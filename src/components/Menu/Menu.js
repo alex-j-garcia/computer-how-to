@@ -1,8 +1,9 @@
 import './Menu.css'
 import { nanoid } from 'nanoid/non-secure';
+import PropTypes from 'prop-types';
 
 function Menu({ links }) {
-  const { module, title, lessons } = links;
+  const { title, lessons } = links;
 
   const lessonLIs = lessons.map(lesson => <li key={nanoid()}>{lesson}</li>);
 
@@ -15,6 +16,14 @@ function Menu({ links }) {
       </ol>
     </nav>
   )
+}
+
+Menu.propTypes = {
+  links: PropTypes.shape({
+    module: PropTypes.number,
+    title: PropTypes.string,
+    lessons: PropTypes.arrayOf(PropTypes.string),
+  }),
 }
 
 export default Menu;

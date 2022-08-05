@@ -6,7 +6,7 @@ import Playground from './components/Playground/Playground';
 import lessons from './lessons.json';
 
 function App() {
-  const [lesson, setLesson] = useState(lessons[0]);
+  const [lesson] = useState(lessons[0]);
 
   return (
     <div className='App'>
