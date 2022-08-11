@@ -4,18 +4,25 @@ import Header from './components/Header/Header';
 import Menu from './components/Menu/Menu';
 import Playground from './components/Playground/Playground';
 import lessons from './lessons.json';
+import { ThemeContextConsumer, ThemeContextProvider } from './components/ThemeContext/ThemeContext';
 
 function App() {
   const [lesson] = useState(lessons[0]);
 
   return (
-    <div className='App'>
-      <Header />
-      <main>
-        <Menu links={lesson} />
-        <Playground />
-      </main>
-    </div>
+      <ThemeContextProvider>
+        <ThemeContextConsumer>
+          {({ theme }) => (
+            <div className={`App ${theme}`}>
+              <Header/>
+              <main>
+                <Menu links={lesson} />
+                <Playground />
+              </main>
+            </div>
+          )}
+        </ThemeContextConsumer>
+      </ThemeContextProvider>
   );
 }
 

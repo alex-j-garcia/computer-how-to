@@ -1,6 +1,7 @@
 import './Header.css';
 import PropTypes from 'prop-types';
 import withToggler from '../HOCs/withToggler';
+import { ThemeContextConsumer } from '../ThemeContext/ThemeContext';
 
 function Language({ on, toggle }) {
   return (
@@ -21,30 +22,37 @@ Language.propTypes = {
 
 const LanguageToggler = withToggler(Language, {defaultOnValue: true});
 
-function Theme({ on, toggle }) {
+function ThemeToggler({ theme, toggleTheme }) {
   return (
-    <button onClick={toggle}>
-      {on ? '☀️' : '🌙'}
+    <button
+      onClick={toggleTheme}
+    >
+      {theme === 'light' ? '🌙' : '☀️'}
     </button>
   );
 }
 
-Theme.defaultProps = {
-  on: false,
+ThemeToggler.defaultProps = {
+  theme: 'light',
 };
 
-Theme.propTypes = {
-  on: PropTypes.bool,
-  toggle: PropTypes.func.isRequired,
+ThemeToggler.propTypes = {
+  theme: PropTypes.string,
 };
-
-const ThemeToggler = withToggler(Theme, {defaultOnValue: false});
 
 function Header() {
   return (
     <header className='Header'>
-      <LanguageToggler />
-      <ThemeToggler />
+      <LanguageToggler/>
+      <ThemeContextConsumer>
+        {({ theme, toggleTheme }) => (
+            <ThemeToggler
+              theme={theme}
+              toggleTheme={toggleTheme}
+            />
+          )
+        }
+      </ThemeContextConsumer>
     </header>
   );
 }

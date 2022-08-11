@@ -9,3 +9,13 @@ html {
   box-sizing: inherit;
   font-family: sans-serif;
 }
+
+.light {
+  background-color: hsl(0, 0%, 98%);
+  color: black;
+}
+
+.dark {
+  background-color: hsl(0, 0%, 7%);
+  color: white;
+}

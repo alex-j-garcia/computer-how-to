@@ -1,9 +1,10 @@
 .App {
-  width: 1000px;
-  margin: 1rem auto;
+  width: 100vw;
+  height: 100vh;
 }
 
 main {
+  width: 1000px;
+  margin: 1rem auto;
   display: flex;
-  height: 100%;
 }
