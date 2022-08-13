@@ -12,10 +12,10 @@ html {
 
 .light {
   background-color: hsl(0, 0%, 98%);
-  color: black;
+  color: hsl(0, 0%, 22%);
 }
 
 .dark {
-  background-color: hsl(0, 0%, 7%);
-  color: white;
+  background-color: hsl(0, 0%, 14%);
+  color: hsl(0, 0%, 89%);
 }
