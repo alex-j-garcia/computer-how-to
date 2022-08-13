@@ -1,58 +1,40 @@
 import './Header.css';
-import PropTypes from 'prop-types';
-import withToggler from '../HOCs/withToggler';
 import { ThemeContextConsumer } from '../ThemeContext/ThemeContext';
+import { LanguageContextConsumer } from '../LanguageContext/LanguageContext';
 
-function Language({ on, toggle }) {
+function LanguageToggler() {
   return (
-    <button onClick={toggle}>
-      {on ? '🇪🇸 Spanish' : '🇺🇸 English'}
-    </button>
+    <LanguageContextConsumer>
+      {({ language, setLanguage }) => (
+        <button onClick={() =>
+          (setLanguage(prev => prev === 'english' ? 'spanish' : 'english'))
+        }>
+          {language === 'english' ? '🇪🇸 Español' : '🇺🇸 English'}
+        </button>
+      )}
+    </LanguageContextConsumer>
   );
 }
 
-Language.defaultProps = {
-  on: true,
-};
-
-Language.propTypes = {
-  on: PropTypes.bool,
-  toggle: PropTypes.func.isRequired,
-};
-
-const LanguageToggler = withToggler(Language, {defaultOnValue: true});
-
-function ThemeToggler({ theme, toggleTheme }) {
+function ThemeToggler() {
   return (
-    <button
-      onClick={toggleTheme}
-    >
-      {theme === 'light' ? '🌙' : '☀️'}
-    </button>
+    <ThemeContextConsumer>
+      {({ theme, toggleTheme }) => (
+        <button
+          onClick={toggleTheme}
+        >
+          {theme === 'light' ? '🌙' : '☀️'}
+        </button>
+      )}
+    </ThemeContextConsumer>
   );
 }
-
-ThemeToggler.defaultProps = {
-  theme: 'light',
-};
-
-ThemeToggler.propTypes = {
-  theme: PropTypes.string,
-};
 
 function Header() {
   return (
     <header className='Header'>
-      <LanguageToggler/>
-      <ThemeContextConsumer>
-        {({ theme, toggleTheme }) => (
-            <ThemeToggler
-              theme={theme}
-              toggleTheme={toggleTheme}
-            />
-          )
-        }
-      </ThemeContextConsumer>
+      <LanguageToggler />
+      <ThemeToggler />
     </header>
   );
 }

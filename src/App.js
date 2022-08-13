@@ -5,6 +5,7 @@ import Menu from './components/Menu/Menu';
 import Playground from './components/Playground/Playground';
 import lessons from './lessons.json';
 import { ThemeContextConsumer, ThemeContextProvider } from './components/ThemeContext/ThemeContext';
+import { LanguageContextProvider } from './components/LanguageContext/LanguageContext'
 
 function App() {
   const [lesson] = useState(lessons[0]);
@@ -14,11 +15,13 @@ function App() {
         <ThemeContextConsumer>
           {({ theme }) => (
             <div className={`App ${theme}`}>
-              <Header/>
-              <main>
-                <Menu links={lesson} />
-                <Playground />
-              </main>
+              <LanguageContextProvider>
+                <Header/>
+                <main>
+                  <Menu links={lesson} />
+                  <Playground />
+                </main>
+              </LanguageContextProvider>
             </div>
           )}
         </ThemeContextConsumer>

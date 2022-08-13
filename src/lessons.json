@@ -1,7 +1,13 @@
 [
   {
     "module": 1,
-    "title": "The Desktop",
-    "lessons": ["Folders", "Files", "Breadcrumbs"]
+    "english": {
+      "title": "The Desktop",
+      "lessons": ["Folders", "Files", "Breadcrumbs"]
+    },
+    "spanish": {
+      "title": "El Escritorio",
+      "lessons": ["Carpetas", "Archivos", "Migas"]
+    }
   }
 ]

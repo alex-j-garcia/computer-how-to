@@ -1,8 +1,8 @@
 .Desktop {
   width: 90%;
   height: 90%;
-  background-color: blanchedalmond;
+  background-color: hsl(180, 55%, 74%);
   background-image: url('/src/images/wallpaper.jpeg');
   background-size: cover;
-  border: 1rem solid black;
+  border: 1rem solid hsl(0, 0%, 0%);
 }
